@@ -268,7 +268,14 @@ client.on('message', message => {
         .addField('np', 'Show the song you are currently playing')
         .setFooter('(-help) To show general commands')
       message.channel.send(helpEmbed);
-    }
+	message.author.sendEmbed(embed)
+
+}
+});
+client.on('message', msg => {
+  if (msg.content === '-mhelp') {
+    msg.reply(':envelope: | Message sent in private');
+  }
 });
 
 client.login(process.env.BOT_TOKEN);
