@@ -253,22 +253,44 @@ function play(guild, song) {
 }
 
 
-client.on('message', message => {
-    if (message.content === '%mhelp') {
-        let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر الميوزك...**')
-        .setDescription('**bot prefix (-)**')
-        .addField('play', 'to play song')
-        .addField('join', 'Enter your audio room')
-        .addField('disconnect', 'Exit bot from audio room')
-        .addField('skip', 'Skip the song')
-        .addField('pause', 'Pause the song')
-        .addField('resume', 'Complete the song')
-        .addField('queue', 'Show playlist')
-        .addField('np', 'Show the song you are currently playing')
-        .setFooter('(-help) To show general commands')
-      message.channel.send(helpEmbed);
-	message.author.sendEmbed(embed)
+client.on("message", message => {
+ if (message.content === "-help") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『Music Commands』💎
+
+💎prefix 『-』 
+                        
+💎-play 『to play song』                      
+
+💎-join 『Enter your audio room』  
+
+💎-skip 『Skip the song』
+
+💎-add 『add music to queue』
+
+💎-pause 『Pause the song』
+
+💎-queue 『Show playlist』
+
+💎-np 『Show the song you are currently playing』
+
+💎-disconnect 『Exit bot from audio room』
+
+💎-help 『General Commands』
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+    
+	`)
+  
+  
+  
+message.author.sendEmbed(embed)
 
 }
 });
